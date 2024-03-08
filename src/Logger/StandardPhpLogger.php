@@ -9,7 +9,7 @@ class StandardPhpLogger extends AbstractLogger
     /**
      * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @param string $name Name for log sorting (eg. "App", "Api")
@@ -24,16 +24,6 @@ class StandardPhpLogger extends AbstractLogger
      */
     public function log($level, $message, array $context = [])
     {
-        $replace = [];
-        foreach ($context as $key => $val) {
-            if (is_array($val) || is_object($val)) {
-                continue;
-            }
-            $replace['{' . $key . '}'] = $val;
-        }
-
-        $message = strtr($message, $replace);
-
         error_log('[' . $this->name . '] ' . strtoupper($level) . ': ' . $message);
     }
 }

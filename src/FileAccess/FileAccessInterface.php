@@ -2,6 +2,6 @@
 
 namespace Rrd\FileAccess;
 
-interface FileAccess
+interface FileAccessInterface
 {
 }
