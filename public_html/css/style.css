@@ -2,15 +2,30 @@ html, body {
     margin: 0;
     padding: 0;
     background: #fff;
+    font-family: Verdana, serif;
 }
 
 footer {
     text-align: center;
 }
 
+h1 {
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+    color: forestgreen;
+    background: #000;
+}
+#doggo {
+    display: block;
+    width: auto;
+    height: 150px;
+    margin: 0 auto;
+}
+
 #search-bar {
     position: relative;
-    margin: 12pt auto;
+    margin: 0 auto 12pt auto;
     width: 80%;
     max-width: 600px;
     border: 1px solid #666;
@@ -23,8 +38,17 @@ footer {
     padding: 8pt;
     border: 0;
 }
-#search-bar button {
+#search-bar input {
+    width: 80%;
     font-family: Verdana, serif;
     font-size: 20px;
 }
-
+#search-bar button {
+    font-family: Verdana, serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+#search-bar button img {
+    margin: 0 3px 0 0;
+    height: 20px;
+}
