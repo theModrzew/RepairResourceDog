@@ -2,6 +2,7 @@
 
 use Psr\Container\ContainerInterface;
 use Rrd\FrontController\HomeController;
+use Rrd\FrontController\SearchController;
 use Rrd\View\ViewInterface;
 
 /**
@@ -12,8 +13,16 @@ use Rrd\View\ViewInterface;
  * @type string $webRoot
  */
 
-$container->set(HomeController::class, function (ContainerInterface $container) {
+$container->set(HomeController::class, function (ContainerInterface $container) use ($app) {
     return new HomeController(
-        $container->get(ViewInterface::class)
+        $container->get(ViewInterface::class),
+        $app->getRouteCollector()->getRouteParser()
+    );
+});
+
+$container->set(SearchController::class, function (ContainerInterface $container) use ($app) {
+    return new SearchController(
+        $container->get(ViewInterface::class),
+        $app->getRouteCollector()->getRouteParser()
     );
 });

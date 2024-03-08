@@ -7,7 +7,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Rrd\View\ViewInterface;
 use Slim\Routing\RouteParser;
 
-class HomeController
+class SearchController
 {
     private ViewInterface $view;
     private RouteParser $routeParser;
@@ -18,14 +18,9 @@ class HomeController
         $this->routeParser = $routeParser;
     }
 
-    public function index(Request $request, Response $response, $args = []) : Response
+    public function run(Request $request, Response $response, $args = []) : Response
     {
-        $this->view->set('queryUrl', $this->routeParser->urlFor('run-search'));
-
-        $response->getBody()->write(
-            $this->view->renderPage('home')
-        );
-
+        $response->getBody()->write('meh');
         return $response;
     }
 }
