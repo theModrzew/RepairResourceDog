@@ -1,0 +1,6 @@
+*.crt  binary
+*.cer  binary
+*.csr  binary
+*.pfx  binary
+*.key  binary
+*.p12  binary
