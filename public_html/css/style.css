@@ -1,0 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+
+
+
+#search-bar {
+    position: relative;
+    width: 80%;
+    border: 1px solid #666;
+    border-radius: 8px;
+    box-shadow: 4px 4px #666;
+}

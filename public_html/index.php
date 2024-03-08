@@ -1,36 +1,39 @@
 <?php
 
+use DI\Container;
 use Psr\Log\LogLevel;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Rrd\Logger\LoggerFactory;
 use Slim\Factory\AppFactory;
 
+/**
+ * @type Slim\App $app
+ * @type DI\Container $container
+ * @type Rrd\Logger\ExceptionLogger $exceptionLogger
+ * @type Psr\Log\LoggerInterface $logger
+ * @type string $webRoot
+*/
+
 mb_internal_encoding('UTF-8');
 
-chdir(dirname(__FILE__));
+$webRoot = dirname(__FILE__);
+chdir($webRoot);
+
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config.php';
 
-$logger = LoggerFactory::create();
+$logger = LoggerFactory::create(); // ???
 $exceptionLogger = LoggerFactory::createForExceptions();
+
+$container = new Container();
+AppFactory::setContainer($container);
 $app = AppFactory::create();
 
+$app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
 
-// Add routes
-$app->get('/', function (Request $request, Response $response) {
-    $response->getBody()->write('Repair Resource Dog');
-
-    return $response;
-});
-
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-
-    return $response;
-});
+require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/../controllers.php';
+require_once __DIR__ . '/../routes.php';
 
 try {
     $app->run();
