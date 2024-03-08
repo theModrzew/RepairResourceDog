@@ -15,6 +15,8 @@
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
-        "slim/slim": "^4.13"
+        "slim/slim": "^4.13",
+        "psr/log": "^1.1",
+        "slim/http": "^1.3"
     }
 }
