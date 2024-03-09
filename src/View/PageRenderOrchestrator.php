@@ -25,7 +25,8 @@ class PageRenderOrchestrator
     public function getHeaderVariables() : array
     {
         return [
-            'siteName' => self::SITE_NAME
+            'siteName' => self::SITE_NAME,
+            'homeUrl' => $this->routeParser->urlFor('home-page')
         ];
     }
 

@@ -9,12 +9,22 @@ footer {
     text-align: center;
 }
 
+a, a:link, a:visited {
+    text-decoration: none;
+}
+a:hover, a:active {
+    text-decoration: underline;
+}
+
 h1 {
     margin: 0;
     padding: 5px 0;
     text-align: center;
     color: forestgreen;
     background: #000;
+}
+h1 a {
+    color: forestgreen !important;
 }
 #doggo {
     display: block;
@@ -23,7 +33,7 @@ h1 {
     margin: 0 auto;
 }
 
-#search-bar {
+#search-bar, #contribute, #about {
     position: relative;
     margin: 0 auto 12pt auto;
     width: 80%;
@@ -51,4 +61,49 @@ h1 {
 #search-bar button img {
     margin: 0 3px 0 0;
     height: 20px;
+}
+#contribute-link, #about-link {
+    margin: 30px auto 5px auto;
+    width: 80%;
+    max-width: 600px;
+    font-size: 17px;
+}
+#contribute-link a, #about-link a {
+    cursor: pointer;
+}
+#contribute-link a:hover, #contribute-link a:active,
+#about-link a:hover, #about-link a:active {
+    color: forestgreen !important;
+    text-decoration: none;
+}
+#contribute.hidden,
+#about.hidden {
+    overflow: hidden;
+    height: 0;
+    border: 0;
+}
+#contribute h3 {
+    margin: 0;
+    padding: 15px 0 0 15px;
+}
+#contribute form {
+    margin: 0;
+    padding: 0 15px;
+}
+#contribute form span {
+    display: inline-block;
+    width: 40%;
+    padding-right: 15px;
+    text-align: right;
+}
+.next-step {
+    text-align: center;
+}
+.next-step button {
+    font-family: Verdana, serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+#about p {
+    padding: 0 15px;
 }
