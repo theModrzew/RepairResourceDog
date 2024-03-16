@@ -1,6 +1,7 @@
 <?php
 
 use DI\Container;
+use Rrd\Database\MyPDO;
 use Rrd\View\ViewInterface;
 
 /**
@@ -13,6 +14,10 @@ use Rrd\View\ViewInterface;
 
 $container->set(Config::class, function () {
     return new Config();
+});
+
+$container->set(MyPDO::class, function (Container  $container) {
+    return new MyPDO($container->get(Config::class));
 });
 
 $container->set(ViewInterface::class, function (Container $container) use ($app, $webRoot) {

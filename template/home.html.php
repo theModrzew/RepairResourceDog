@@ -1,7 +1,10 @@
 <?php
 
+use Rrd\Search\SearchDefines;
+
 /**
  * @var string $queryUrl
+ * @var string $uploadUrl
  */
 
 ?>
@@ -17,36 +20,36 @@
 <h2 id="contribute-link"><a>➕ Contribute</a></h2>
 <section id="contribute" class="hidden">
     <h3>Upload a file</h3>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="<?= htmlspecialchars($uploadUrl) ?>" method="post" enctype="multipart/form-data">
         <p>
             <span>Device category:</span>
             <label>
-                <select name="" required>
+                <select name="device_type" required>
                     <option selected></option>
-                    <option value="">GPU</option>
-                    <option value="">Laptop</option>
-                    <option value="">IC</option>
+                    <option value="<?= SearchDefines::DEVICE_TYPE_GPU ?>">GPU</option>
+                    <option value="<?= SearchDefines::DEVICE_TYPE_LAPTOP ?>">Laptop</option>
+                    <option value="<?= SearchDefines::DEVICE_TYPE_IC ?>">IC</option>
                 </select>
             </label>
         </p>
         <p>
             <span>Device name:</span>
-            <label><input type="text" name="" maxlength="" required></label>
+            <label><input type="text" name="device_name" maxlength="60" required></label>
         </p>
         <p>
             <span>File category:</span>
             <label>
-                <select name="" required>
+                <select name="file_category" required>
                     <option selected></option>
-                    <option value="">Datasheet</option>
-                    <option value="">Schematic</option>
-                    <option value="">Board View</option>
+                    <option value="<?= SearchDefines::FILE_CAT_DATASHEET ?>>">Datasheet</option>
+                    <option value="<?= SearchDefines::FILE_CAT_SCHEMATIC ?>">Schematic</option>
+                    <option value="<?= SearchDefines::FILE_CAT_BOARD_VIEW ?>">Board View</option>
                 </select>
             </label>
         </p>
         <p>
             <span>Proposed file:</span>
-            <label><input type="file" accept=".cad,.pdf" name="proposedFile" required></label>
+            <label><input type="file" accept=".cad,.pdf" name="proposed_file" required></label>
         </p>
         <p class="next-step"><button type="submit">Next ></button></p>
     </form>

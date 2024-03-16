@@ -31,9 +31,9 @@ $app = AppFactory::create();
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
 
-require_once __DIR__ . '/../bootstrap.php';
-require_once __DIR__ . '/../controllers.php';
-require_once __DIR__ . '/../routes.php';
+require_once __DIR__ . '/../inc/bootstrap.php';
+require_once __DIR__ . '/../inc/controllers.php';
+require_once __DIR__ . '/../inc/routes.php';
 
 try {
     $app->run();

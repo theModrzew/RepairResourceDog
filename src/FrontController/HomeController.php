@@ -21,6 +21,7 @@ class HomeController
     public function index(Request $request, Response $response, $args = []) : Response
     {
         $this->view->set('queryUrl', $this->routeParser->urlFor('run-search'));
+        $this->view->set('uploadUrl', $this->routeParser->urlFor('file-upload'));
 
         $response->getBody()->write(
             $this->view->renderPage('home')
